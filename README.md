@@ -1,5 +1,5 @@
 ## TDB
-# Laboratory on the Basics of Translator Design
+# Translator Design Fundamentals Labs
 
 This module provides the study of the second credit module of this discipline and is designed to study the basics of formal grammars, as well as the principles and concepts that underlie the design of translators, in particular their components: lexical analyzers, parsers and code generators.
 
