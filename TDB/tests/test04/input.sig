@@ -1,0 +1,6 @@
+PROCEDURE proc;
+LABEL 1, 2, 4;
+BEGIN
+1:
+GOTO 3;
+END;

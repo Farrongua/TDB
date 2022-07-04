@@ -1,0 +1,3 @@
+	JMP 15
+	MOV ax, esi
+	MOV DWORD PTR[rpd-20], ax

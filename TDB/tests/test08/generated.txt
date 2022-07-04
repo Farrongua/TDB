@@ -1,0 +1,61 @@
+ Line | Column | Ident token | Token
+-------------------------------------------------
+    1 |      1 |         401 | PROCEDURE
+    1 |     11 |        1001 | proc
+    1 |     15 |          40 | (
+    1 |     16 |        1002 | id1
+    1 |     19 |          44 | ,
+    1 |     21 |          44 | ,
+    1 |     23 |        1003 | id3
+    1 |     26 |          41 | )
+    1 |     27 |          59 | ;
+    2 |      1 |         404 | LABEL
+    2 |      7 |         501 | 15
+    2 |      9 |          44 | ,
+    2 |     11 |         502 | 16
+    2 |     13 |          44 | ,
+    2 |     15 |         503 | 17
+    2 |     17 |          59 | ;
+    3 |      1 |         402 | BEGIN
+    3 |      7 |         501 | 15
+    3 |     10 |          58 | :
+    3 |     12 |          40 | (
+    3 |     13 |          36 | $
+    3 |     15 |        1004 | asmFile
+    3 |     23 |          36 | $
+    3 |     24 |          41 | )
+    3 |     25 |          59 | ;
+    4 |      1 |         405 | GOTO
+    4 |      6 |         502 | 16
+    4 |      8 |          59 | ;
+    5 |      1 |         406 | RETURN
+    5 |      7 |          59 | ;
+    6 |      1 |         403 | END
+    6 |      4 |          59 | ;
+
+Identifier table
+asmFile 1004
+id1 1002
+id3 1003
+proc 1001
+
+Constant table
+15 501
+16 502
+17 503
+
+Parse tree
+<signal-program>
+..<program>
+....401 PROCEDURE
+....<procedure-identifier>
+......<identifier>
+........1001 proc
+....<parameters-list>
+......40 (
+......<variable-identifier>
+........<identifier>
+..........1002 id1
+......<identifier-list>
+........44 ,
+Parser : Error [1, 21]. Identifier not found.

@@ -1,0 +1,106 @@
+Line | Column | Ident token | Token
+-------------------------------------------------
+    1 |      1 |         401 | PROCEDURE
+    1 |     11 |        1001 | proc
+    1 |     15 |          40 | (
+    1 |     16 |        1002 | id1
+    1 |     19 |          44 | ,
+    1 |     21 |        1003 | id2
+    1 |     24 |          44 | ,
+    1 |     26 |        1004 | id3
+    1 |     29 |          41 | )
+    1 |     30 |          59 | ;
+    2 |      1 |         404 | LABEL
+    2 |      7 |         501 | 1
+    2 |      8 |          44 | ,
+    2 |     10 |         501 | 1
+    2 |     11 |          44 | ,
+    2 |     13 |         502 | 3
+    2 |     14 |          59 | ;
+    3 |      1 |         402 | BEGIN
+    4 |      1 |         502 | 3
+    4 |      2 |          58 | :
+    4 |      4 |          40 | (
+    4 |      5 |          36 | $
+    4 |      7 |        1005 | asmFile
+    4 |     15 |          36 | $
+    4 |     16 |          41 | )
+    5 |      1 |         406 | RETURN
+    5 |      7 |          59 | ;
+    6 |      1 |         403 | END
+    6 |      4 |          59 | ;
+
+Identifier table
+id3 1004
+proc 1001
+id1 1002
+asmFile 1005
+id2 1003
+
+Constant table
+1 501
+3 502
+
+Parse tree
+<signal-program>
+..<program>
+....401 PROCEDURE
+....<procedure-identifier>
+......<identifier>
+........1001 proc
+....<parameters-list>
+......40 (
+......<variable-identifier>
+........<identifier>
+..........1002 id1
+......44 ,
+......<variable-identifier>
+........<identifier>
+..........1003 id2
+......44 ,
+......<variable-identifier>
+........<identifier>
+..........1004 id3
+......41 )
+....59 ;
+....<block>
+......<declaration>
+........<label-declaration>
+..........404 LABEL
+..........<unsigned-integer>
+............501 1
+..........44 ,
+..........<unsigned-integer>
+............501 1
+..........44 ,
+..........<unsigned-integer>
+............502 3
+..........59 ;
+......402 BEGIN
+......<statement-list>
+........<statement>
+..........<unsigned-integer>
+............502 3
+..........58 :
+........<statement>
+..........40 (
+..........36 $
+..........<assembly-insert-file-identifier>
+............<identifier>
+..............1005 asmFile
+..........36 $
+..........41 )
+........<statement>
+..........406 RETURN
+..........59 ;
+......403 END
+....59 ;
+
+data	SEGMENT                        
+data	ENDS
+                        
+code	SEGMENT                        
+	ASSUME   cs:code, ds:data
+proc:
+
+Code Generator : Error: different labels cannot have the same name

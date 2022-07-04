@@ -1,0 +1,3 @@
+PROCEDURE proc;
+BEGIN
+END;

@@ -1,0 +1,23 @@
+ Line | Column | Ident token | Token
+-------------------------------------------------
+    1 |      1 |         401 | PROCEDURE
+    1 |     11 |        1001 | proc
+    1 |     15 |          59 | ;
+    2 |      1 |        1001 | proc
+    2 |      6 |         402 | BEGIN
+    2 |     11 |          58 | :
+    3 |      1 |         404 | LABEL
+ Lexer : Error. Illegam symbol : '%'[3, 9] in la%bel1
+    3 |     14 |          58 | :
+    4 |      1 |          40 | (
+    4 |      2 |          36 | $
+ Lexer : Error. Illegam symbol : '_'[4, 7] in asm_File
+    4 |     13 |          36 | $
+    4 |     14 |          41 | )
+ Lexer : Error. Illegam symbol : '%'[5, 1]
+ Lexer : Error. Illegam symbol : '&'[5, 3] in &var1
+    5 |      8 |          59 | ;
+    6 |      1 |          40 | (
+ Lexer : Error. Illegam symbol : '&'[6, 3] in &var
+    6 |      8 |          41 | )
+    7 |      1 |         403 | END

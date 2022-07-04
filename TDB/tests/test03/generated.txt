@@ -1,0 +1,117 @@
+ Line | Column | Ident token | Token
+-------------------------------------------------
+    1 |      1 |         401 | PROCEDURE
+    1 |     11 |        1001 | proc
+    1 |     15 |          40 | (
+    1 |     16 |        1002 | id1
+    1 |     19 |          44 | ,
+    1 |     21 |        1003 | id2
+    1 |     24 |          44 | ,
+    1 |     26 |        1004 | id3
+    1 |     29 |          41 | )
+    1 |     30 |          59 | ;
+    2 |      1 |         404 | LABEL
+    2 |      7 |         501 | 15
+    2 |      9 |          44 | ,
+    2 |     11 |         502 | 17
+    2 |     13 |          44 | ,
+    2 |     15 |         503 | 18
+    2 |     17 |          59 | ;
+    3 |      1 |         402 | BEGIN
+    4 |      1 |         405 | GOTO
+    4 |      6 |         501 | 15
+    4 |      8 |          59 | ;
+    5 |      1 |         503 | 18
+    5 |      4 |          58 | :
+    5 |      6 |          40 | (
+    5 |      7 |          36 | $
+    5 |      9 |        1005 | asmFile
+    5 |     17 |          36 | $
+    5 |     18 |          41 | )
+    7 |      1 |         403 | END
+    7 |      4 |          59 | ;
+
+Identifier table
+id3 1004
+proc 1001
+id1 1002
+asmFile 1005
+id2 1003
+
+Constant table
+15 501
+17 502
+18 503
+
+Parse tree
+<signal-program>
+..<program>
+....401 PROCEDURE
+....<procedure-identifier>
+......<identifier>
+........1001 proc
+....<parameters-list>
+......40 (
+......<variable-identifier>
+........<identifier>
+..........1002 id1
+......44 ,
+......<variable-identifier>
+........<identifier>
+..........1003 id2
+......44 ,
+......<variable-identifier>
+........<identifier>
+..........1004 id3
+......41 )
+....59 ;
+....<block>
+......<declaration>
+........<label-declaration>
+..........404 LABEL
+..........<unsigned-integer>
+............501 15
+..........44 ,
+..........<unsigned-integer>
+............502 17
+..........44 ,
+..........<unsigned-integer>
+............503 18
+..........59 ;
+......402 BEGIN
+......<statement-list>
+........<statement>
+..........405 GOTO
+..........<unsigned-integer>
+............501 15
+..........59 ;
+........<statement>
+..........<unsigned-integer>
+............503 18
+..........58 :
+........<statement>
+..........40 (
+..........36 $
+..........<assembly-insert-file-identifier>
+............<identifier>
+..............1005 asmFile
+..........36 $
+..........41 )
+......403 END
+....59 ;
+
+data	SEGMENT                        
+data	ENDS
+                        
+code	SEGMENT                        
+	ASSUME   cs:code, ds:data
+proc:
+	JMP 15
+ 
+18:
+ 
+	JMP 15
+	MOV ax, esi
+	MOV DWORD PTR[rpd-20], ax 
+
+Code Generator : Error: Error: label "15" was called but not added

@@ -1,0 +1,77 @@
+Line | Column | Ident token | Token
+-------------------------------------------------
+    1 |      1 |         401 | PROCEDURE
+    1 |     11 |        1001 | proc
+    1 |     15 |          59 | ;
+    2 |      1 |         404 | LABEL
+    2 |      7 |         501 | 1
+    2 |      8 |          44 | ,
+    2 |     10 |         502 | 2
+    2 |     11 |          44 | ,
+    2 |     13 |         503 | 4
+    2 |     14 |          59 | ;
+    3 |      1 |         402 | BEGIN
+    4 |      1 |         501 | 1
+    4 |      2 |          58 | :
+    5 |      1 |         405 | GOTO
+    5 |      6 |         504 | 3
+    5 |      7 |          59 | ;
+    6 |      1 |         403 | END
+    6 |      4 |          59 | ;
+
+Identifier table
+proc 1001
+
+Constant table
+1 501
+2 502
+4 503
+3 504
+
+Parse tree
+<signal-program>
+..<program>
+....401 PROCEDURE
+....<procedure-identifier>
+......<identifier>
+........1001 proc
+....<parameters-list>
+......<empty>
+....59 ;
+....<block>
+......<declaration>
+........<label-declaration>
+..........404 LABEL
+..........<unsigned-integer>
+............501 1
+..........44 ,
+..........<unsigned-integer>
+............502 2
+..........44 ,
+..........<unsigned-integer>
+............503 4
+..........59 ;
+......402 BEGIN
+......<statement-list>
+........<statement>
+..........<unsigned-integer>
+............501 1
+..........58 :
+........<statement>
+..........405 GOTO
+..........<unsigned-integer>
+............504 3
+..........59 ;
+......403 END
+....59 ;
+
+data	SEGMENT                        
+data	ENDS
+                        
+code	SEGMENT                        
+	ASSUME   cs:code, ds:data
+proc:
+1:
+ 
+
+Code Generator : Error: Use undeclarated label "3"

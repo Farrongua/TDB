@@ -1,0 +1,78 @@
+ Line | Column | Ident token | Token
+-------------------------------------------------
+    1 |      1 |         401 | PROCEDURE
+    1 |     11 |        1001 | proc
+    1 |     15 |          40 | (
+    1 |     16 |        1002 | id1
+    1 |     19 |          44 | ,
+    1 |     21 |        1003 | id2
+    1 |     24 |          44 | ,
+    1 |     26 |        1004 | id3
+    1 |     29 |          41 | )
+    1 |     30 |          59 | ;
+    2 |      1 |         404 | LABEL
+    2 |      7 |          44 | ,
+    2 |      9 |         501 | 16
+    2 |     11 |          44 | ,
+    2 |     13 |         502 | 17
+    2 |     15 |          59 | ;
+    3 |      1 |         402 | BEGIN
+    3 |      7 |         503 | 15
+    3 |     10 |          58 | :
+    3 |     12 |          40 | (
+    3 |     13 |          36 | $
+    3 |     15 |        1005 | asmFile
+    3 |     23 |          36 | $
+    3 |     24 |          41 | )
+    3 |     25 |          59 | ;
+    4 |      1 |         405 | GOTO
+    4 |      6 |         501 | 16
+    4 |      8 |          59 | ;
+    5 |      1 |         406 | RETURN
+    5 |      7 |          59 | ;
+    6 |      1 |         403 | END
+    6 |      4 |          59 | ;
+
+Identifier table
+asmFile 1005
+id1 1002
+id2 1003
+id3 1004
+proc 1001
+
+Constant table
+15 503
+16 501
+17 502
+
+Parse tree
+<signal-program>
+..<program>
+....401 PROCEDURE
+....<procedure-identifier>
+......<identifier>
+........1001 proc
+....<parameters-list>
+......40 (
+......<variable-identifier>
+........<identifier>
+..........1002 id1
+......<identifier-list>
+........44 ,
+........<variable-identifier>
+..........<identifier>
+............1003 id2
+........<identifier-list>
+..........44 ,
+..........<variable-identifier>
+............<identifier>
+..............1004 id3
+..........<identifier-list>
+............<empty>
+......41 )
+....59 ;
+....<block>
+......<declaration>
+........<label-declaration>
+..........404 LABEL
+Parser : Error [2, 7]. Unsigned integer not found.

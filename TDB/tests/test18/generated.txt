@@ -1,0 +1,99 @@
+ Line | Column | Ident token | Token
+-------------------------------------------------
+    1 |      1 |         401 | PROCEDURE
+    1 |     11 |        1001 | proc
+    1 |     15 |          40 | (
+    1 |     16 |        1002 | id1
+    1 |     19 |          44 | ,
+    1 |     21 |        1003 | id2
+    1 |     24 |          44 | ,
+    1 |     26 |        1004 | id3
+    1 |     29 |          41 | )
+    1 |     30 |          59 | ;
+    2 |      1 |         404 | LABEL
+    2 |      7 |         501 | 15
+    2 |      9 |          44 | ,
+    2 |     11 |         502 | 16
+    2 |     13 |          44 | ,
+    2 |     15 |         503 | 17
+    2 |     17 |          59 | ;
+    3 |      1 |         402 | BEGIN
+    3 |      7 |         501 | 15
+    3 |     10 |          58 | :
+    3 |     12 |          40 | (
+    3 |     14 |        1005 | asmFile
+    3 |     22 |          36 | $
+    3 |     23 |          41 | )
+    3 |     24 |          59 | ;
+    4 |      1 |         405 | GOTO
+    4 |      6 |         502 | 16
+    4 |      8 |          59 | ;
+    5 |      1 |         406 | RETURN
+    5 |      7 |          59 | ;
+    6 |      1 |         403 | END
+    6 |      4 |          59 | ;
+
+Identifier table
+asmFile 1005
+id1 1002
+id2 1003
+id3 1004
+proc 1001
+
+Constant table
+15 501
+16 502
+17 503
+
+Parse tree
+<signal-program>
+..<program>
+....401 PROCEDURE
+....<procedure-identifier>
+......<identifier>
+........1001 proc
+....<parameters-list>
+......40 (
+......<variable-identifier>
+........<identifier>
+..........1002 id1
+......<identifier-list>
+........44 ,
+........<variable-identifier>
+..........<identifier>
+............1003 id2
+........<identifier-list>
+..........44 ,
+..........<variable-identifier>
+............<identifier>
+..............1004 id3
+..........<identifier-list>
+............<empty>
+......41 )
+....59 ;
+....<block>
+......<declaration>
+........<label-declaration>
+..........404 LABEL
+..........<unsigned-integer>
+............501 15
+..........<label-list>
+............44 ,
+............<unsigned-integer>
+..............502 16
+............<label-list>
+..............44 ,
+..............<unsigned-integer>
+................503 17
+..............<label-list>
+................<empty>
+..........59 ;
+......402 BEGIN
+......<statement-list>
+........<statement>
+..........<unsigned-integer>
+............501 15
+............58 :
+............<statement>
+..............40 (
+Parser : Error. Delimiter '$'[3, 14] not found.

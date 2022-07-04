@@ -1,0 +1,58 @@
+ Line | Column | Ident token | Token
+-------------------------------------------------
+    1 |      1 |         401 | PROCEDURE
+    1 |     11 |        1001 | proc
+    1 |     15 |          40 | (
+    2 |      1 |        1002 | id1
+    2 |      4 |          44 | ,
+    2 |      6 |        1003 | id2
+    2 |      9 |          44 | ,
+    2 |     11 |        1004 | id3
+    2 |     14 |          41 | )
+    2 |     15 |          59 | ;
+    3 |      1 |         404 | LABEL
+    3 |      7 |         501 | 15
+    3 |      9 |          44 | ,
+    3 |     11 |         502 | 16
+    3 |     13 |          44 | ,
+    3 |     15 |         503 | 17
+    3 |     17 |          59 | ;
+    4 |      1 |         402 | BEGIN
+    4 |      7 |         501 | 15
+    4 |     10 |          58 | :
+    4 |     12 |          40 | (
+    4 |     13 |          36 | $
+    4 |     15 |        1005 | asmFile
+    4 |     23 |          36 | $
+    4 |     24 |          41 | )
+    4 |     25 |          59 | ;
+    5 |      1 |         405 | GOTO
+    5 |      6 |         502 | 16
+    5 |      8 |          59 | ;
+    6 |      1 |         406 | RETURN
+    6 |      7 |          59 | ;
+    7 |      1 |         403 | END
+    7 |      4 |          59 | ;
+
+Identifier table
+asmFile 1005
+id1 1002
+id2 1003
+id3 1004
+proc 1001
+
+Constant table
+15 501
+16 502
+17 503
+
+Parse tree
+<signal-program>
+..<program>
+....401 PROCEDURE
+....<procedure-identifier>
+......<identifier>
+........1001 proc
+....<parameters-list>
+......40 (
+Parser : Error [2, 1]. Tokens must be on the same line.
